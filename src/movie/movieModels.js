@@ -10,6 +10,9 @@ title:{
 actor:{
     type:String,
 },
+rating:{
+    type:String,
+}
 });
 const Movie=mongoose.model("Movie",movieSchema);
 module.exports=Movie;
