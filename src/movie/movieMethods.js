@@ -1,4 +1,7 @@
+const mongoose = require("mongoose");
+
 const Movie = require("./movieModels")
+
 exports.addMovie = async (movieOb) => {
     try {
         const movie = await new Movie(movieOb);
@@ -27,16 +30,20 @@ exports.updateActor = async (movieOb, updateActor) => {
         await Movie.updateOne(movieOb,
             updateActor)
         console.log(`${movieOb.title} has updated "actor" to ${movieOb.actor}`)
+        
     }
     catch (error) {
         console.log(error);
     }
 };
 exports.updateRating = async (movieOb, updateRating) => {
-    try {
+    try {console.log(movieOb.rating);
         await Movie.updateOne(movieOb,
             updateRating)
-        console.log(`${movieOb.title} has updated "rating" to ${movieOb.rating}`)
+            console.log(movieOb.rating);
+        console.log(`${movieOb.title} has updated "rating" to ${movieOb.rating}`);
+        console.log(movieOb.title);
+        
     }
     catch (error) {
         console.log(error);

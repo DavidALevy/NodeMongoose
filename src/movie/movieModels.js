@@ -11,8 +11,8 @@ actor:{
     type:String,
 },
 rating:{
-    type:Number,
-}
+    type:Number
+},
 });
 const Movie=mongoose.model("Movie",movieSchema);
 module.exports=Movie;
