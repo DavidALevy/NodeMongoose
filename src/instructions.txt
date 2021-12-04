@@ -1,0 +1,6 @@
+1.Leave a space between commands.
+2.Type in the terminal: 'node src/app.'
+3.Add the function you require in speech marks eg."delete" or "list". After"list" you can press enter.
+4.For commands other than 'list', type:'--title' followed by a space and the movie title inside "".
+5.For update you need to type in the field you are updating followed by the updated value eg.  node src/app.js "updateRating" --title "Wizard of Oz" --rating 100
+6.Press enter.

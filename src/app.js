@@ -17,7 +17,7 @@ const app = async (args) => {
             updateActor({ title: args.title, actor: args.actor });
             break;
         case "updateRating":
-            updateRating({ title: args.title, rating: args.rating });
+            updateRating({ title: args.title}, {rating: args.rating });
             break;
         case "deleteMovie":
             deleteMovie({ title: args.title });
@@ -28,3 +28,4 @@ const app = async (args) => {
     }
 }
 app(yargs.argv);
+//Not yet understood why updateActor works without curly brackets whereas updateRating only works with parameters separated by curly brackets.

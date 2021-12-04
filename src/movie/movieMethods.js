@@ -7,6 +7,7 @@ exports.addMovie = async (movieOb) => {
         const movie = await new Movie(movieOb);
         await movie.save();
         console.log(`Successfully added ${movie.title}`)
+        mongoose.connection.close();
     } catch (error) {
         console.log(error);
     }
@@ -14,6 +15,7 @@ exports.addMovie = async (movieOb) => {
 exports.listMovies = async () => {
     try {
         console.log(await Movie.find({}));
+        mongoose.connection.close();
     } catch (error) {
         console.log(error)
     }
@@ -21,6 +23,7 @@ exports.listMovies = async () => {
 exports.findMovie = async (dataOb) => {
     try {
         console.log(await Movie.find(dataOb))
+        mongoose.connection.close();
     } catch (error) {
         console.log(error);
     }
@@ -30,20 +33,18 @@ exports.updateActor = async (movieOb, updateActor) => {
         await Movie.updateOne(movieOb,
             updateActor)
         console.log(`${movieOb.title} has updated "actor" to ${movieOb.actor}`)
-        
+        mongoose.connection.close();
     }
     catch (error) {
         console.log(error);
     }
 };
-exports.updateRating = async (movieOb, updateRating) => {
-    try {console.log(movieOb.rating);
+exports.updateRating = async (movieOb, updatedRating) => {
+    try {
         await Movie.updateOne(movieOb,
-            updateRating)
-            console.log(movieOb.rating);
-        console.log(`${movieOb.title} has updated "rating" to ${movieOb.rating}`);
-        console.log(movieOb.title);
-        
+            updatedRating)
+        console.log(`${movieOb.title} has updated "rating" to ${updatedRating.rating}`);
+        mongoose.connection.close();
     }
     catch (error) {
         console.log(error);
@@ -54,6 +55,7 @@ exports.deleteMovie = async (movieOb) => {
     try {
         await Movie.deleteOne(movieOb)
         console.log(`${movieOb.title} has been deleted.`)
+        mongoose.connection.close();
     } catch (error) {
         console.log(error);
     }
